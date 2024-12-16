@@ -47,15 +47,7 @@
 #define LOCK_W  LG(L)
 #define LOCK_X  LC(LG(Q))
 
-#define COMBO(name, kp, pos)               \
-combo_##name {                             \
-    timeout-ms            = <30>;          \
-    require-prior-idle-ms = <TAPPING_TERM>;\
-    bindings              = <kp>;          \
-    key-positions         = <pos>;         \
-};
-
-
+ 
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -73,7 +65,7 @@ combo_##name {                             \
     combos {
         compatible = "zmk,combos";
  
-        COMBO(combo_esfc, &kp ESC, 3 4)
+         
     };
 
     macros {
