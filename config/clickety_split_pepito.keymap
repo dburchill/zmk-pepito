@@ -74,20 +74,6 @@ combo_##name {                             \
         compatible = "zmk,combos";
  
         COMBO(combo_esfc, &kp ESC, 3 4)
-        COMBO(combo_cut, &kp LG(X), 25 26)
- 		COMBO(combo_cpy, &kp LG(C), 26 27) 
-        COMBO(combo_pst, &kp LG(V), 27 28)
-        COMBO(combo_pst_wo, &kp LS(LG(V)), 28 29)
-        COMBO(combo_pst_wok, &kp LA(LS(LG(V))),23 24)
-
- 		COMBO(combo_app_chgr, &kp LG(SPACE),15 16)
-        COMBO(combo_lasso, &kp LG(LC(LS(N4))), 14 15)
-        COMBO(combo_return, &kp RETURN, 40 35 )
-        COMBO(combo_bspc, &kp BSPC, 32 9)
-
-        //COMBO(combo_indt, &vs_idt, 6 7)
-
-         
     };
 
     macros {
