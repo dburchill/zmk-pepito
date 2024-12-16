@@ -47,6 +47,16 @@
 #define LOCK_W  LG(L)
 #define LOCK_X  LC(LG(Q))
 
+#define COMBO(name, kp, pos)               \
+combo_##name {                             \
+    timeout-ms            = <30>;          \
+    require-prior-idle-ms = <TAPPING_TERM>;\
+    bindings              = <kp>;          \
+    key-positions         = <pos>;         \
+    //layers                = <0 1>;         \
+};
+
+
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -63,48 +73,22 @@
 
     combos {
         compatible = "zmk,combos";
+ 
+        COMBO(combo_esfc, &kp ESC, 3 4)
+        COMBO(combo_cut, &kp LG(X), 25 26)
+ 		COMBO(combo_cpy, &kp LG(C), 26 27) 
+        COMBO(combo_pst, &kp LG(V), 27 28)
+        COMBO(combo_pst_wo, &kp LS(LG(V)), 28 29)
+        COMBO(combo_pst_wok, &kp LA(LS(LG(V))),23 24)
 
-        combo_win_ESC {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            layers = <QW_M>;
-            bindings = <&kp ESC>;
-        };
+ 		COMBO(combo_app_chgr, &kp LG(SPACE),15 16)
+        COMBO(combo_lasso, &kp LG(LC(LS(N4))), 14 15)
+        COMBO(combo_return, &kp RETURN, 40 35 )
+        COMBO(combo_bspc, &kp BSPC, 32 9)
 
-        combo_osx_ESC {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            layers = <QX_M>;
-            bindings = <&kp ESC>;
-        };
+        //COMBO(combo_indt, &vs_idt, 6 7)
 
-        combo_win_LGUI {
-            timeout-ms = <50>;
-            key-positions = <0 12>;
-            layers = <QW_M>;
-            bindings = <&kp LGUI>;
-        };
-
-        combo_win_RGUI {
-            timeout-ms = <50>;
-            key-positions = <11 23>;
-            layers = <QW_M>;
-            bindings = <&kp RGUI>;
-        };
-
-        combo_osx_LCTRL {
-            timeout-ms = <50>;
-            key-positions = <0 12>;
-            layers = <QX_M>;
-            bindings = <&kp LCTRL>;
-        };
-
-        combo_osx_RCTRL {
-            timeout-ms = <50>;
-            key-positions = <11 23>;
-            layers = <QX_M>;
-            bindings = <&kp RCTRL>;
-        };
+         
     };
 
     macros {
